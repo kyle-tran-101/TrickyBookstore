@@ -1,0 +1,5 @@
+C:\TrickyBookStore\obj\Debug\net7.0\TrickyBookStore.csproj.AssemblyReference.cache
+C:\TrickyBookStore\obj\Debug\net7.0\TrickyBookStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\TrickyBookStore\obj\Debug\net7.0\TrickyBookStore.AssemblyInfoInputs.cache
+C:\TrickyBookStore\obj\Debug\net7.0\TrickyBookStore.AssemblyInfo.cs
+C:\TrickyBookStore\obj\Debug\net7.0\TrickyBookStore.csproj.CoreCompileInputs.cache
