@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TrickyBookStore.Models
-build_property.ProjectDir = c:\TrickyBookStore\TrickyBookStore.Models\
+build_property.ProjectDir = /Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Models/

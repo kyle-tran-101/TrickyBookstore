@@ -4899,39 +4899,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kitu\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/kiettran/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TrickyBookStore\\TrickyBookStore.Services\\TrickyBookStore.Services.csproj",
+      "projectUniqueName": "/Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Services/TrickyBookStore.Services.csproj",
       "projectName": "TrickyBookStore.Services",
-      "projectPath": "C:\\TrickyBookStore\\TrickyBookStore.Services\\TrickyBookStore.Services.csproj",
-      "packagesPath": "C:\\Users\\kitu\\.nuget\\packages\\",
-      "outputPath": "C:\\TrickyBookStore\\TrickyBookStore.Services\\obj\\",
+      "projectPath": "/Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Services/TrickyBookStore.Services.csproj",
+      "packagesPath": "/Users/kiettran/.nuget/packages/",
+      "outputPath": "/Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Services/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\kitu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kiettran/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\TrickyBookStore\\TrickyBookStore.Models\\TrickyBookStore.Models.csproj": {
-              "projectPath": "C:\\TrickyBookStore\\TrickyBookStore.Models\\TrickyBookStore.Models.csproj"
+            "/Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Models/TrickyBookStore.Models.csproj": {
+              "projectPath": "/Users/kiettran/Projects/TrickyBookstore/TrickyBookStore.Models/TrickyBookStore.Models.csproj"
             }
           }
         }
@@ -4974,12 +4967,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }

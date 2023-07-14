@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using TrickyBookStore.Models;
 using TrickyBookStore.Services.Customers;
 using TrickyBookStore.Services.PurchaseTransactions;
 using TrickyBookStore.Services.Store;
 
 namespace TrickyBookStore.Services.Payment;
+
 internal class PaymentService : IPaymentService
 {
     ICustomerService CustomerService { get; }
@@ -18,23 +21,38 @@ internal class PaymentService : IPaymentService
         PurchaseTransactionService = purchaseTransactionService;
     }
 
+    public static double HandlePreferred(Book book, Subscription subscription)
+    {
+        var subscriptionType = subscription.SubscriptionType;
+        var price = book.Price;
+        if (subscription.BookCategoryId != null)
+        {
+            return price;
+        } 
+        
+        if (book.IsOld)
+        {
+            price *= (1 - subscriptionType.OldBooksDiscount);
+        }
+        // PriceDetails includes FixedPrice, so check it by subtracting its Count by 1 
+        else if (subscriptionType.NewBooksApplied == SubscriptionType.All &&
+                 subscriptionType.NewBooksApplied >= subscription.PriceDetails.Count - 1)
+        {
+            price *= (1 - subscriptionType.NewBooksDiscount);
+        }
 
-
+        return price;
+    }
 
     public double GetPaymentAmount(long customerId, DateTimeOffset fromDate, DateTimeOffset toDate)
     {
         var customer = CustomerService.GetCustomerById(customerId);
-        var purchase = PurchaseTransactionService.GetPurchaseTransactions(customerId, fromDate, toDate);
-        double amount = 0;
-        foreach (var trasaction in purchase)
-        {
-            List<long> 
-            if (Utilities<long>.IsIncluded(customer.SubscriptionIds, SubscriptionTypes.))) {
 
-            }            
-        }
+        var purchaseList = PurchaseTransactionService.GetPurchaseTransactions(customerId, fromDate, toDate);
+
+        
 
 
-        throw new NotImplementedException();
+        return 0.0;
     }
 }

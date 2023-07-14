@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TrickyBookStore.Models;
 using System.Linq;
 
@@ -9,7 +8,7 @@ internal class BookService : IBookService
     public IList<Book> GetBooks(params long[] ids)
     {
         return Store.Books.Data
-            .Where(book => Utilities<long>.IsIncluded(ids, book.Id))
+            .Where(book => ids.Contains(book.Id))
             .ToList();
     }
 }

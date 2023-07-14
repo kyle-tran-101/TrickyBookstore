@@ -9,7 +9,7 @@ namespace TrickyBookStore.Services.Store
 {
     public static class SubscriptionTypes
     {
-        public static readonly IList<SubscriptionType> Data = new List<SubscriptionType>
+        private static readonly IList<SubscriptionType> Data = new List<SubscriptionType>
         {
             new SubscriptionType {
                 Id = 0,
@@ -42,22 +42,10 @@ namespace TrickyBookStore.Services.Store
             },
         };
 
-        public static SubscriptionType Free
-        {
-            get => Data[0];
-        }
-
-        public static SubscriptionType Paid
-        {
-            get => Data[1];
-        }
-        public static SubscriptionType CategoryAddicted
-        {
-            get => Data[2];
-        }
-        public static SubscriptionType Premium
-        {
-            get => Data[3];
-        }
+        public static SubscriptionType Free => Data[0];
+        
+        public static SubscriptionType Paid => Data[1];
+        public static SubscriptionType CategoryAddicted => Data[2];
+        public static SubscriptionType Premium => Data[3];
     }
 }
