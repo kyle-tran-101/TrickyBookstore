@@ -30,7 +30,7 @@ public class PurchaseTransactionService : IPurchaseTransactionService
                 transaction =>
                 {
                     transaction.Book = BookService
-                        .GetBooks(transaction.Id)
+                        .GetBooks(transaction.BookId)
                         .FirstOrDefault();
                     return transaction;
                 }

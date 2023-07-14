@@ -33,7 +33,7 @@ public class CustomerService : ICustomerService
             var freePlan = Store.Subscriptions.Data
                 .Where(subscription => subscription.SubscriptionType == SubscriptionTypes.Free)
                 .FirstOrDefault(); // add new Free Sub if not exits - need further inplementation
-            
+
             if (customer.SubscriptionIds == null)
             {
                 customer.SubscriptionIds = new List<int>();
@@ -43,13 +43,16 @@ public class CustomerService : ICustomerService
             if (customer.Subscriptions == null)
             {
                 customer.Subscriptions = new List<Subscription>();
-            } 
+            }
             customer.Subscriptions.Add(freePlan);
         }
+        else
+        {
+            customer.Subscriptions = SubscriptionService
+                .GetSubscriptions(customer.SubscriptionIds.ToArray())
+                .ToList();
+        }
 
-        customer.Subscriptions = SubscriptionService
-            .GetSubscriptions(customer.SubscriptionIds.ToArray())
-            .ToList();
         return customer;
     }
 }
