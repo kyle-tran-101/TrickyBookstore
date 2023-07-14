@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace TrickyBookStore.Services.PurchaseTransactions;
 
-internal class PurchaseTransactionService : IPurchaseTransactionService
+public class PurchaseTransactionService : IPurchaseTransactionService
 {
     IBookService BookService { get; }
 

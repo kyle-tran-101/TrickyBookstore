@@ -12,32 +12,50 @@ namespace TrickyBookStore.Services.Store
             {
                 Id = 1, SubscriptionType = SubscriptionTypes.Paid,
                 PriceDetails = new Dictionary<string, double>()
+                {
+                    {"NewBook", 0.0}
+                }
             },
             new()
             {
                 Id = 2, SubscriptionType = SubscriptionTypes.Free,
                 PriceDetails = new Dictionary<string, double>()
+                {
+                    {"NewBook", 0.0}
+                }
             },
             new()
             {
                 Id = 3, SubscriptionType = SubscriptionTypes.Premium,
                 PriceDetails = new Dictionary<string, double>()
+                {
+                    {"NewBook", 0.0}
+                }
             },
             new()
             {
                 Id = 4, SubscriptionType = SubscriptionTypes.CategoryAddicted,
                 PriceDetails = new Dictionary<string, double>()
+                {
+                    {"NewBook", 0.0}
+                }
             },
             new()
             {
                 Id = 5, SubscriptionType = SubscriptionTypes.CategoryAddicted,
-                PriceDetails = new Dictionary<string, double>(),
+                PriceDetails = new Dictionary<string, double>()                
+                {
+                    {"NewBook", 0.0}
+                },
                 BookCategoryId = 1
             },
             new()
             {
                 Id = 6, SubscriptionType = SubscriptionTypes.CategoryAddicted,
-                PriceDetails = new Dictionary<string, double>(),
+                PriceDetails = new Dictionary<string, double>()                
+                {
+                    {"NewBook", 0.0}
+                },
                 BookCategoryId = 3
             }
         }.Select(subscription =>

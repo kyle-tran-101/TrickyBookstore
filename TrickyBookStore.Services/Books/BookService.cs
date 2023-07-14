@@ -3,7 +3,7 @@ using TrickyBookStore.Models;
 using System.Linq;
 
 namespace TrickyBookStore.Services.Books;
-internal class BookService : IBookService
+public class BookService : IBookService
 {
     public IList<Book> GetBooks(params long[] ids)
     {

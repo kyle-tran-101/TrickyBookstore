@@ -9,7 +9,7 @@ using TrickyBookStore.Services.Store;
 
 namespace TrickyBookStore.Services.Payment;
 
-internal class PaymentService : IPaymentService
+public class PaymentService : IPaymentService
 {
     ICustomerService CustomerService { get; }
     IPurchaseTransactionService PurchaseTransactionService { get; }
@@ -25,20 +25,16 @@ internal class PaymentService : IPaymentService
     {
         var subscriptionType = subscription.SubscriptionType;
         var price = book.Price;
-        if (subscription.BookCategoryId != null)
-        {
-            return price;
-        } 
-        
+
         if (book.IsOld)
         {
-            price *= (1 - subscriptionType.OldBooksDiscount);
+            price *= (1.0 - subscriptionType.OldBooksDiscount);
         }
-        // PriceDetails includes FixedPrice, so check it by subtracting its Count by 1 
         else if (subscriptionType.NewBooksApplied == SubscriptionType.All &&
-                 subscriptionType.NewBooksApplied >= subscription.PriceDetails.Count - 1)
+                 subscriptionType.NewBooksApplied >= Convert.ToInt32(subscription.PriceDetails["NewBook"]))
         {
-            price *= (1 - subscriptionType.NewBooksDiscount);
+            price *= (1.0 - subscriptionType.NewBooksDiscount);
+            subscription.PriceDetails["NewBook"] += 1;
         }
 
         return price;
@@ -50,9 +46,33 @@ internal class PaymentService : IPaymentService
 
         var purchaseList = PurchaseTransactionService.GetPurchaseTransactions(customerId, fromDate, toDate);
 
-        
+        var preferenceList = customer.Subscriptions
+            .Where(item => item.BookCategoryId != null)
+            .ToList();
+
+        double price = customer.Subscriptions.Aggregate(0.0, (prev, next) => prev + next.PriceDetails["FixedPrice"]);
+        foreach (var item in purchaseList)
+        {
+
+            // Handle CategoryAddicted when a Category is in Preference List 
+            var selection = preferenceList
+                .Where(preference => preference.BookCategoryId == item.Book.CategoryId)
+                .ToList();
+
+            if (selection.Count > 0)
+            {
+                price += HandlePreferred(item.Book, selection.First());
+                continue;
+            }
+            var bestPlan = customer.Subscriptions
+                .OrderByDescending(plan => plan.SubscriptionType.Id)
+                .ThenBy(plan => plan.PriceDetails["NewBook"])
+                .First();
+
+            price += HandlePreferred(item.Book, bestPlan);
+        }
 
 
-        return 0.0;
+        return price;
     }
 }
