@@ -49,7 +49,7 @@ public class Program
         catch (Exception error)
         {
             string msg = error.Message;
-            if (error.InnerException != null)
+            while (error.InnerException != null)
             {
                 var inner = error.InnerException;
                 msg += $"\n\t{inner.Message}";

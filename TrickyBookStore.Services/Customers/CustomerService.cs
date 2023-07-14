@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TrickyBookStore.Models;
 using TrickyBookStore.Services.Store;
@@ -33,7 +34,16 @@ public class CustomerService : ICustomerService
                 .Where(subscription => subscription.SubscriptionType == SubscriptionTypes.Free)
                 .FirstOrDefault(); // add new Free Sub if not exits - need further inplementation
             
+            if (customer.SubscriptionIds == null)
+            {
+                customer.SubscriptionIds = new List<int>();
+            }
             customer.SubscriptionIds.Add(freePlan.Id);
+
+            if (customer.Subscriptions == null)
+            {
+                customer.Subscriptions = new List<Subscription>();
+            } 
             customer.Subscriptions.Add(freePlan);
         }
 
