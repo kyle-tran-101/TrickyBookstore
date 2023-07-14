@@ -25,10 +25,11 @@ public class Program
         Console.WriteLine("###############################");
         Console.WriteLine("Trick Book Store - Your payment");
         Console.WriteLine("-------------------------------");
-        Console.WriteLine("");
-
+        Console.WriteLine("Input year (E.g: 2018)");
         int year = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Input month (E.g: 1)");
         int month = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Input customer ID (E.g: 1)");
         long customerId = Convert.ToInt32(Console.ReadLine());
 
         DateTimeOffset startDate = new DateTimeOffset(new DateTime(year, month, 1));
