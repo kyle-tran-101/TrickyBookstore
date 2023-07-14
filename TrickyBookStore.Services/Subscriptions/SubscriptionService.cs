@@ -10,7 +10,7 @@ internal class SubscriptionService : ISubscriptionService
     public IList<Subscription> GetSubscriptions(params int[] ids)
     {
         return Store.Subscriptions.Data
-            .Where(subscription => Utilities<int>.IsIncluded(ids, subscription.Id))
+            .Where(subscription => ids.Contains(subscription.Id))
             .ToList();
     }
 }
