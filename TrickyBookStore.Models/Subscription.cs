@@ -7,6 +7,5 @@ public class Subscription
     public int Id { get; init; }
     public SubscriptionType SubscriptionType { get; set; }
     public int? BookCategoryId { get; set; }
-
     public Dictionary<string, double> PriceDetails { get; set; }
 }

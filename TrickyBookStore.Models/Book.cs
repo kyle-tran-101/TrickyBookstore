@@ -9,7 +9,6 @@ public class Book
     public double Price { get; set; }
     public bool IsOld { get; set; }
     public int CategoryId { get; set; }
-
     public BookCategory Category { get; set; }
 }
 
